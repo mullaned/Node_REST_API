@@ -3,13 +3,17 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
+// Our Routes
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
+//Morgan Body Parser
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+
+//CORS ERROR Handling
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Orign', '*');
     res.header('Access-Contol-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -17,6 +21,7 @@ app.use((req, res, next) => {
         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
         return res.status(200).json({});
     }
+    next();
 });
 
 
