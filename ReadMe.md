@@ -1,4 +1,4 @@
-RESTful API:
+## RESTful API:
 
 Representational State Transfer is used to transfer data.  
 
@@ -7,7 +7,12 @@ Stateless Backends with HTTP endpoints
 HTTP requests to exchange data usually in JSON format
 
 
-CORS Errors:
+## Usage
+
+run npm install.
+
+
+## CORS Errors:
 Cross-Origin Resource Sharing blocks access from non local servers.  Add CORS headers to avoid errors.
 
 app.use((req, res, next) => {
